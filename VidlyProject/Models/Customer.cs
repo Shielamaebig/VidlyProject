@@ -24,7 +24,7 @@ namespace VidlyProject.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
-        //[Min18Yrs] //Annotaion from the created Min18yrsModel For Validation If the customer is Equal or Above 18 yrs old
+        [Min18YearOld] //Annotaion from the created Min18yrsModel For Validation If the customer is Equal or Above 18 yrs old
         public DateTime? Birthdate { get; set; }
     }
 }

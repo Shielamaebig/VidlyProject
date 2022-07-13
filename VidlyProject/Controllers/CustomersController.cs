@@ -29,20 +29,32 @@ namespace VidlyProject.Controllers
             var viewModel = new NewCustomerViewModel()
 
             {
+                Customer = new Customer(), // Add this Model to save the NewCustomer Form When Implementing the Validation = read the Form.
                 MembershipTypes = membershipTypes
             };
             return View("CustomerForm", viewModel);
         }
+
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {   //these command doesnot save
-            // if (!ModelState.IsValid) {var viewModel = new NewCustomerViewModel{Customer = customer, MembershipTypes = _context.MembershipTypes.ToList()};
-           //     return View("CustomerForm", viewModel);} 
-           
+            //Saving Read Adding the Model in Controller New So when the route read its value from the Model
+             if (!ModelState.IsValid) 
+             { 
+                 var viewModel = new NewCustomerViewModel
+                 {
+                     Customer = customer, 
+                     MembershipTypes = _context.MembershipTypes.ToList()
+                 };
+                 return View("CustomerForm", viewModel);
+             }
 
-            if (customer.Id == 0)
+             if (customer.Id == 0)
+
                 _context.Customers.Add(customer);
-            else
+             else
             {
                 //Manual Declaration
                 //Also we can do here the mapper

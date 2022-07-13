@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddMovieModel : DbMigration
+    public partial class GenreData : DbMigration
     {
         public override void Up()
         {

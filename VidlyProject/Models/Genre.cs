@@ -8,6 +8,7 @@ namespace VidlyProject.Models
 {
     public class Genre
     {
+        //Genre Same as the Membershiptype
         public byte Id { get; set; }
 
         [Required]

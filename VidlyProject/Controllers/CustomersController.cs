@@ -28,7 +28,7 @@ namespace VidlyProject.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new NewCustomerViewModel()
 
-            {
+            { //Properties Initialize 0
                 Customer = new Customer(), // Add this Model to save the NewCustomer Form When Implementing the Validation = read the Form.
                 MembershipTypes = membershipTypes
             };

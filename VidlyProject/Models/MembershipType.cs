@@ -5,6 +5,8 @@ using System.Web;
 
 namespace VidlyProject.Models
 {
+    //We have model for MembershipType For These data in order to have these in DropDownList/Edit/Create/Details
+    //Model in Customer have Membershiptype in Membershitype have also different categories
     public class MembershipType
     {
         public byte Id { get; set; }

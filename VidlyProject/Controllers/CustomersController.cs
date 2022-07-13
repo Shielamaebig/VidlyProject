@@ -35,7 +35,11 @@ namespace VidlyProject.Controllers
         }
         [HttpPost]
         public ActionResult Save(Customer customer)
-        {
+        {   //these command doesnot save
+            // if (!ModelState.IsValid) {var viewModel = new NewCustomerViewModel{Customer = customer, MembershipTypes = _context.MembershipTypes.ToList()};
+           //     return View("CustomerForm", viewModel);} 
+           
+
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else
@@ -71,11 +75,12 @@ namespace VidlyProject.Controllers
 
         public ActionResult Edit(int id)
         {
+            //For each database in customer data each Id
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
                 return HttpNotFound();
-
+            
             var viewModel = new NewCustomerViewModel()
             {
                 Customer = customer,
